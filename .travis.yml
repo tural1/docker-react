@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t mtural/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run mtural/docker-react npm run test -- --coverage
